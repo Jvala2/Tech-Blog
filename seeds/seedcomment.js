@@ -9,12 +9,12 @@ const commentdata = [
   {
     comment_text: 'Sir this is a tech blog.',
     user_id: 2,
-    post_id: 3
+    post_id: 2
   },
   {
     comment_text: 'Guys my computer broke when I stabbed it with a katana, how else am I supposed to post my sword art online?',
     user_id: 3,
-    post_id: 6
+    post_id: 3
   },
 ];
 

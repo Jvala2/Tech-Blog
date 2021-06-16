@@ -5,12 +5,12 @@ const postdata = [
   {
     title: 'asdfasd',
     post_text: 'asdf as',
-    user_id: 10
+    user_id: 3
   },
   {
     title: 'Keeep',
     post_text: 'Posters post post',
-    user_id: 8
+    user_id: 2
   },
   {
     title: 'Toasters Toast Toast',
