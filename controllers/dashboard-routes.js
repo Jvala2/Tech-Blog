@@ -31,7 +31,7 @@ router.get('/', withAuth, (req, res) => {
       ]
     })
       .then(dbPostData => {
-        // serialize data before passing to template
+        // THERE IS AN ISSUE HERE!!!! SOMWHERE AT THE .THEN
         const posts = dbPostData.map(post => post.get({ plain: true }));
         res.render('dashboard', { posts, loggedIn: true });
       })
