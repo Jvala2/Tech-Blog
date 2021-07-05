@@ -11,9 +11,12 @@ submitButton.addEventListener("click", async function (event) {
     }
     console.log(userObject);
 
-    fetch("/api/username", {
+    fetch("/api/users", {
         method: "post",
         body: JSON.stringify(userObject),
+        headers: {
+            "Content-Type": "application/json"
+        }
     }).then(function () {
         document.location.replace("/dashboard")
     }).catch(error => console.log(error))
