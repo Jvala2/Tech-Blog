@@ -32,6 +32,7 @@ router.get('/', withAuth, (req, res) => {
     })
       .then(dbPostData => {
         // THERE IS AN ISSUE HERE!!!! SOMWHERE AT THE .THEN
+        console.log(dbPostData);
         const posts = dbPostData.map(post => post.get({ plain: true }));
         res.render('dashboard', { posts, loggedIn: true });
       })
