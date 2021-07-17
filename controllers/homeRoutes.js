@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../models');
+const { User, Post } = require('../models');
 const withAuth = require('../utils/auth');
 
 
@@ -10,12 +10,19 @@ router.get('/', withAuth, async (req, res) => {
       order: [['name', 'ASC']],
     });
 
+    const postData = await Post.findAll({
+      include: [User]
+    });
+
     const users = userData.map((project) => project.get({ plain: true }));
+    const posts = postData.map((post) => post.get({ plain: true }));
 
     res.render('homepage', {
       users,
 
       logged_in: req.session.logged_in,
+
+      posts
     });
   } catch (err) {
     res.status(500).json(err);
@@ -41,5 +48,6 @@ router.get('/signup', (req, res) =>{
 
   res.render('signup');
 })
+
 
 module.exports = router;
