@@ -13,7 +13,7 @@ router.get('/', withAuth, (req, res) => {
         'id',
         'title',
         'created_at',
-        'post_content'
+        'post_text'
       ],
       include: [
         {
@@ -21,12 +21,12 @@ router.get('/', withAuth, (req, res) => {
           attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
           include: {
             model: User,
-            attributes: ['username', 'twitter', 'github']
+            attributes: ['name']
           }
         },
         {
           model: User,
-          attributes: ['username', 'twitter', 'github']
+          attributes: ['name']
         }
       ]
     })
@@ -51,7 +51,7 @@ router.get('/', withAuth, (req, res) => {
         'id',
         'title',
         'created_at',
-        'post_content'
+        'post_text'
       ],
       include: [
         {
@@ -59,12 +59,12 @@ router.get('/', withAuth, (req, res) => {
           attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
           include: {
             model: User,
-            attributes: ['username', 'twitter', 'github']
+            attributes: ['name']
           }
         },
         {
           model: User,
-          attributes: ['username', 'twitter', 'github']
+          attributes: ['name']
         }
       ]
     })
@@ -98,7 +98,7 @@ router.get('/create/', withAuth, (req, res) => {
         'id',
         'title',
         'created_at',
-        'post_content'
+        'post_text'
       ],
       include: [
         {
@@ -106,12 +106,12 @@ router.get('/create/', withAuth, (req, res) => {
           attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
           include: {
             model: User,
-            attributes: ['username', 'twitter', 'github']
+            attributes: ['name']
           }
         },
         {
           model: User,
-          attributes: ['username', 'twitter', 'github']
+          attributes: ['name']
         }
       ]
     })

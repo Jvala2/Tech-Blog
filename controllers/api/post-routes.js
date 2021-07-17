@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
             'id',
             'title',
             'created_at',
-            'post_content'
+            'post_text'
         ],
       order: [['created_at', 'DESC']],
       include: [
@@ -46,7 +46,7 @@ router.get('/', (req, res) => {
         'id',
         'title',
         'created_at',
-        'post_content'
+        'post_text'
       ],
       include: [
         // include the Comment model here:
@@ -80,7 +80,7 @@ router.get('/', (req, res) => {
 router.post('/', withAuth, (req, res) => {
     Post.create({
       title: req.body.title,
-      post_content: req.body.post_content,
+      post_text: req.body.post_text,
       user_id: req.session.user_id
     })
       .then(dbPostData => res.json(dbPostData))
@@ -93,7 +93,7 @@ router.post('/', withAuth, (req, res) => {
 router.put('/:id', withAuth, (req, res) => {
     Post.update({
         title: req.body.title,
-        post_content: req.body.post_content
+        post_text: req.body.post_text
       },
       {
         where: {
